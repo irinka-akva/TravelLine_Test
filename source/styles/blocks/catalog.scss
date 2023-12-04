@@ -1,0 +1,38 @@
+.catalog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px 0;
+
+    &__title {
+        font-family: $secondary-font;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+        color: $color-font-2;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 24px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        @media (min-width: $tablet-width) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: $desktop-width) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}

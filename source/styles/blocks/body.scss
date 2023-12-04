@@ -1,0 +1,21 @@
+.body {
+    font-family: $main-font;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: $color-font-1;
+    background:
+        linear-gradient(180deg, rgba(222, 237, 255, 0.60) 0%, rgba(166, 204, 250, 0.50) 100%) center/cover no-repeat,
+        url("../../images/background-line.svg") top/1020px 453px no-repeat fixed,
+        url("../../images/background-cover.svg") top/1020px 453px no-repeat fixed,
+        linear-gradient(90deg, #F0F0F0 0%, #D4D4D4 100%) center/cover no-repeat;
+
+        @media (min-width: $tablet-width) {
+            background:
+        linear-gradient(180deg, rgba(222, 237, 255, 0.60) 0%, rgba(166, 204, 250, 0.50) 100%) center/cover no-repeat,
+        url("../../images/background-line.svg") top/1920px 852px no-repeat fixed,
+        url("../../images/background-cover.svg") top/1920px 852px no-repeat fixed,
+        linear-gradient(90deg, #F0F0F0 0%, #D4D4D4 100%) center/cover no-repeat;
+          }
+}
