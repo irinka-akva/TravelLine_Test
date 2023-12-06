@@ -1,23 +1,404 @@
 .card {
+  position: relative;
+
+  display: flex;
+  max-width: 450px;
+  min-height: 347px;
+
+  background: $gradient-1;
+  border-radius: 13px;
+  box-shadow: -1px 4px 19px 2px transparent;
+
+  transition: box-shadow 0.3s ease;
+
+  @media (min-width: $tablet-width) {
+    width: calc(50% - 14px);
+    min-height: 420px;
+
+    border-radius: 10px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: calc(33.33% - 21.33px);
+    min-height: 372px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 11px;
+  }
+
+  &__title-link {
     position: relative;
-    background: $gradient-1;
+
+    font-family: $secondary-font;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: $color-font-1;
+
+    transition: text-decoration 0.3s ease,
+      color 0.3s ease;
+
+    @media (min-width: $tablet-width) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+      position: absolute;
+      bottom: 2px;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $color-font-1;
+
+
+      transition: visibility 0.3s ease,
+        opacity 0.3s ease;
+
+      content: "";
+    }
+
+    &:active::before {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:active {
+      color: $color-pressed;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    margin-bottom: 18px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid $color-line;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__price {
+    margin: 0;
+    margin-bottom: -1px;
+
+    font-weight: 700;
+
+    @media (min-width: $tablet-width) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__price-info {
+    margin: 0;
+    margin-bottom: 15px;
+
+    font-family: $secondary-font;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 700;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 17px;
+
+      font-size: 19px;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__price-number {
+    font-size: 20px;
+    line-height: 32px;
+    color: $color-primary-2;
+
+    @media (min-width: $tablet-width) {
+      font-size: 24px;
+    }
+  }
+
+  &__price-currency {
+    margin-left: 2px;
+
+    font-family: $third-font;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 400;
+    color: $color-currency-2;
+
+    @media (min-width: $tablet-width) {
+      margin-left: 5px;
+
+      font-size: 23px;
+    }
+  }
+
+  &__price-container {
+    @media (min-width: $desktop-width) {
+      display: flex;
+      gap: 7.9%;
+      align-items: end;
+    }
+  }
+
+  &__price-wrapper {
+    @media (min-width: $desktop-width) {
+      width: 36.89%;
+    }
+  }
+
+  &__button {
+    text-align: center;
+
+    padding: 7px 7px 11px 10px;
+    width: 100%;
+
+    font-family: $main-font;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: $color-font-1;
+
+    background-color: $color-primary-1;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease,
+      color 0.3s ease;
+
+    word-wrap: break-word;
+
+    @media (min-width: $tablet-width) {
+      padding: 11px 7px 13px 10px;
+
+      font-size: 16px;
+    }
+
+    @media (min-width: $desktop-width) {
+      width: 55.21%;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-primary-3;
+      outline: none;
+    }
+
+    &:active {
+      color: $color-primary-4;
+
+      background-color: $color-primary-3;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    z-index: -1;
+    aspect-ratio: 288/347;
+
+    width: 100%;
+    height: 100%;
+
     border-radius: 13px;
+    overflow: hidden;
 
-    &__img {
-        position: absolute;
-        aspect-ratio: 288/347;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        border-radius: 13px;
-        overflow: hidden;
+    @media (min-width: $tablet-width) {
+      border-radius: 10px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-self: end;
+    width: 100%;
+    height: 100%;
+    padding: 21px;
+
+    @media (min-width: $tablet-width) {
+      padding: 24px;
+    }
+  }
+
+  &__motivator {
+    position: absolute;
+    top: 21px;
+    left: 21px;
+
+    display: inline-block;
+    padding: 4px 4px 5px 16px;
+
+    font-family: $secondary-font;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 700;
+
+    background-color: $color-accent;
+    visibility: hidden;
+    opacity: 0;
+
+    transition: visibility 0.3s ease,
+      opacity 0.3s ease;
+
+    &::before {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform: translateX(100%);
+
+      width: 36px;
+      height: 100%;
+
+      background-image: url("../../images/icon-motivator.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+
+      content: "";
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: -3px 9px 19px -2px rgba(34, 60, 80, 0.64);
+    outline: none;
+  }
+
+  &.motivator:hover .card__motivator,
+  &.motivator:focus-visible .card__motivator {
+    visibility: visible;
+    opacity: 1;
+    outline: none;
+  }
+
+  &__booked {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 13px;
+    background-color: $color-booked;
+    visibility: hidden;
+    opacity: 0;
+
+    transition: visibility 0.3s ease,
+      opacity 0.3s ease;
+
+    @media (min-width: $tablet-width) {
+      border-radius: 10px;
+    }
+  }
+
+  &.reserved .card__booked {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.reserved:hover,
+  &.reserved:focus-visible {
+    box-shadow: none;
+  }
+
+  &.reserved.motivator:hover .card__motivator,
+  &.reserved.motivator:focus-visible .card__motivator {
+    visibility: hidden;
+    opacity: 0;
+    outline: none;
+  }
+
+  &__button:disabled {
+    pointer-events: none;
+    background-color: $color-currency;
+  }
+
+  &__booked-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: auto;
+    padding: 25px 21px 29px 21px;
+    min-height: 148px;
+
+    text-align: center;
+    line-height: 21px;
+
+    background-color: $color-secondary;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+
+    @media (min-width: $tablet-width) {
+      min-height: 161px;
+
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
 
-    &__wrapper {
-        width: 100%;
-        height: 100%;
-        padding: 77px 21px 21px 21px;
+    @media (min-width: $desktop-width) {
+      min-height: 96px;
+    }
+  }
+
+  &__booked-text {
+    margin: 0;
+  }
+
+  &__booked-link {
+    position: relative;
+
+    color: $color-primary-2;
+
+    transition: color 0, 3s ease;
+
+    &:hover::before,
+    &:focus-visible::before {
+      position: absolute;
+      bottom: 1px;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $color-primary-2;
+
+      transition: visibility 0.3s ease,
+        opacity 0.3s ease;
+
+      content: "";
     }
 
+    &:active::before {
+      visibility: hidden;
+      opacity: 0;
+    }
 
+    &:hover,
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:active {
+      color: $color-primary-5;
+    }
+  }
 }
